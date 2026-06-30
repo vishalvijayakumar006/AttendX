@@ -1,51 +1,53 @@
 # 🎟️ AttendX – Smart Event Entry System
 
-## 📌 Overview
+> A Full Stack PHP & MySQL web application for QR-based event registration and attendance management.
 
-AttendX is a full-stack web application designed to simplify event registration, participant management, QR code-based entry verification, and attendance tracking.
-
-The system replaces manual registration and attendance processes with a secure digital workflow. Each event registration generates a unique QR code that organizers can scan to verify participant entry and record attendance in real time.
-
-The application supports two user roles—**Participant** and **Administrator**—with dedicated dashboards and management features for each.
+![PHP](https://img.shields.io/badge/PHP-Core_PHP-blue)
+![MySQL](https://img.shields.io/badge/Database-MySQL-orange)
+![HTML5](https://img.shields.io/badge/Frontend-HTML5-red)
+![CSS3](https://img.shields.io/badge/CSS-CSS3-blue)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow)
+![License](https://img.shields.io/badge/License-MIT-green)
 
 ---
 
-## 🎯 Problem Statement
+# 📌 Overview
 
-Traditional event management often faces challenges such as:
+AttendX is a full-stack web application designed to simplify event registration, participant management, QR-based entry verification, and attendance tracking.
 
-- Manual registration and attendance tracking
+Instead of manual registration and attendance sheets, AttendX provides a secure digital workflow where every event registration generates a unique QR code that organizers can scan to verify participants and record attendance instantly.
+
+The system includes separate dashboards for **Participants** and **Administrators**, making event management efficient and secure.
+
+---
+
+# 🎯 Problem Statement
+
+Traditional event management systems often face challenges such as:
+
+- Manual registration
+- Manual attendance tracking
 - Duplicate registrations
-- Time-consuming entry verification
-- Difficulty managing participant records
-- Lack of real-time attendance monitoring
+- Fake event entries
+- Difficulty managing large participant lists
+- Slow verification process
+- No real-time attendance monitoring
 
-AttendX addresses these issues by providing a centralized and automated event management solution.
+AttendX addresses these issues with automated registration, QR-based verification, and centralized event management.
 
 ---
 
-## 💡 Solution
+# 💡 Solution
 
-AttendX enables complete event lifecycle management by allowing users to:
+AttendX provides a complete event management workflow:
 
-### Participants
-
-- Create an account
-- Browse available events
-- Register for events
-- Receive a unique QR code ticket
-- View registration history
-- Track attendance status
-- Manage their profile
-
-### Administrators
-
-- Create, edit, and delete events
-- View registered participants
-- Verify QR codes during event entry
-- Mark attendance instantly
-- Monitor event statistics
-- Generate attendance reports
+1. Participant Registration
+2. Event Creation
+3. Event Enrollment
+4. QR Code Generation
+5. QR Code Verification
+6. Attendance Recording
+7. Dashboard Analytics & Reports
 
 ---
 
@@ -60,8 +62,8 @@ AttendX enables complete event lifecycle management by allowing users to:
 
 ## Backend
 
-- PHP (Core PHP)
-- PDO
+- Core PHP
+- PDO (PHP Data Objects)
 - Session-Based Authentication
 
 ## Database
@@ -77,23 +79,29 @@ AttendX enables complete event lifecycle management by allowing users to:
 
 # 👥 User Roles
 
-## Participant
+## 👤 Participant
 
-- Register and log in
-- Browse available events
-- Register for events
-- Download QR tickets
-- View attendance history
-- Update profile
+- Register Account
+- Login Securely
+- Browse Events
+- Register for Events
+- View Tickets
+- Download QR Codes
+- Check Attendance Status
+- Update Profile
 
-## Administrator
+---
 
-- Manage events
-- Manage participants
-- Verify QR codes
-- Record attendance
-- Generate reports
-- View dashboard analytics
+## 👨‍💼 Administrator
+
+- Create Events
+- Edit Events
+- Delete Events
+- View Participants
+- Verify QR Codes
+- Mark Attendance
+- Generate Reports
+- View Dashboard Analytics
 
 ---
 
@@ -101,41 +109,89 @@ AttendX enables complete event lifecycle management by allowing users to:
 
 ## Participant Workflow
 
-1. Register Account
-2. Login
-3. Browse Events
-4. Register for an Event
-5. Receive QR Code Ticket
-6. QR Verification at Entry
-7. Attendance Recorded
+```text
+Register
+      │
+      ▼
+Login
+      │
+      ▼
+Browse Events
+      │
+      ▼
+Register Event
+      │
+      ▼
+Generate QR Ticket
+      │
+      ▼
+Event Entry
+      │
+      ▼
+QR Verification
+      │
+      ▼
+Attendance Recorded
+```
 
 ## Administrator Workflow
 
-1. Login
-2. Create or Manage Events
-3. View Registered Participants
-4. Scan QR Codes
-5. Record Attendance
-6. Generate Reports
+```text
+Admin Login
+      │
+      ▼
+Create Events
+      │
+      ▼
+Manage Participants
+      │
+      ▼
+Scan QR Codes
+      │
+      ▼
+Verify Entry
+      │
+      ▼
+Record Attendance
+      │
+      ▼
+Generate Reports
+```
 
 ---
 
 # 📊 Database Design
 
-### Main Tables
+## Tables
 
-- users
-- events
-- registrations
-- qr_codes
-- attendance
+| Table | Description |
+|--------|-------------|
+| users | Stores user accounts |
+| events | Stores event details |
+| registrations | Event registrations |
+| qr_codes | Generated QR codes |
+| attendance | Attendance records |
 
-### Relationships
+---
 
-- One User → Many Registrations
-- One Event → Many Registrations
-- One Registration → One QR Code
-- One Registration → One Attendance Record
+## Database Relationships
+
+```text
+Users
+  │
+  ├──────────────┐
+  ▼              │
+Registrations ◄──┘
+      │
+      ▼
+Events
+
+Registrations
+      │
+      ├────────► QR Codes
+      │
+      └────────► Attendance
+```
 
 ---
 
@@ -143,11 +199,11 @@ AttendX enables complete event lifecycle management by allowing users to:
 
 - Password Hashing
 - Session-Based Authentication
-- Role-Based Access Control
-- PDO Prepared Statements
+- Role-Based Access Control (RBAC)
+- Prepared Statements (PDO)
 - Duplicate Registration Prevention
 - Duplicate Attendance Prevention
-- Secure QR Token Validation
+- QR Token Validation
 
 ---
 
@@ -155,6 +211,7 @@ AttendX enables complete event lifecycle management by allowing users to:
 
 ```text
 smart-event-entry/
+│
 ├── admin/
 ├── assets/
 ├── config/
@@ -163,6 +220,7 @@ smart-event-entry/
 ├── libs/
 ├── uploads/
 ├── user/
+│
 ├── index.php
 ├── login.php
 ├── register.php
@@ -172,34 +230,43 @@ smart-event-entry/
 
 ---
 
-# ✨ Key Features
+# ⚡ Features
 
-### Event Management
+## 🎯 Event Management
 
-- Create Events
-- Edit Events
-- Delete Events
-- Event Dashboard
+- Create Event
+- Edit Event
+- Delete Event
+- Dashboard
 
-### Registration System
+---
 
-- Online Event Registration
+## 📝 Registration
+
+- Event Registration
 - Registration History
 - Duplicate Registration Prevention
 
-### QR Code System
+---
 
-- Automatic QR Code Generation
-- QR Code Download
+## 🎫 QR Code System
+
+- Unique QR Generation
+- QR Download
 - QR Validation
 
-### Attendance Management
+---
 
-- QR-Based Attendance
-- Attendance Tracking
+## ✅ Attendance
+
+- QR Scanning
+- Attendance Recording
 - Attendance Reports
+- Attendance History
 
-### Dashboard & Analytics
+---
+
+## 📈 Dashboard Analytics
 
 - Total Users
 - Total Events
@@ -209,17 +276,106 @@ smart-event-entry/
 
 ---
 
-# 🚀 Future Enhancements
+# 🚀 Installation
 
-- Email Notifications
-- Event Reminder System
-- Mobile Application
-- Certificate Generation
-- Payment Gateway Integration
-- Multi-Organizer Support
+## 1️⃣ Clone Repository
+
+```bash
+git clone <repository-url>
+```
 
 ---
 
-## 👨‍💻 Author
+## 2️⃣ Move Project
 
-Developed as a full-stack web application project using **PHP, MySQL, HTML, CSS, JavaScript, PDO, and QR Code technology**.
+Place the project inside:
+
+```text
+C:\xampp\htdocs\smart-event-entry
+```
+
+---
+
+## 3️⃣ Create Database
+
+Import the SQL file:
+
+```text
+database/schema.sql
+```
+
+using **phpMyAdmin**.
+
+---
+
+## 4️⃣ Configure Database
+
+Edit:
+
+```text
+config/database.php
+```
+
+Update:
+
+```php
+$host = "localhost";
+$dbname = "your_database";
+$username = "root";
+$password = "";
+```
+
+---
+
+## 5️⃣ Start XAMPP
+
+Start:
+
+- Apache
+- MySQL
+
+---
+
+## 6️⃣ Run Project
+
+Open your browser:
+
+```text
+http://localhost/smart-event-entry
+```
+
+---
+
+# 📈 Future Enhancements
+
+- 📧 Email Ticket Delivery
+- 📱 Mobile Application
+- ⭐ Event Feedback System
+- 📊 Advanced Analytics
+- 👥 Multi-Organizer Support
+- 🔔 Real-Time Notifications
+
+---
+
+# 🎯 Project Outcome
+
+AttendX demonstrates a production-style Event Management System implementing:
+
+- Full Stack PHP Development
+- QR-Based Attendance Verification
+- Secure Authentication
+- Role-Based Authorization
+- Relational Database Design
+- Dashboard Reporting
+- Deployment Readiness
+
+---
+
+# 👨‍💻 Developer
+
+**Vishal Vijayakumar**
+
+🎓 Rajalakshmi Engineering College
+
+
+---
