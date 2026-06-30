@@ -1,105 +1,159 @@
-🎟️ AttendX – Smart Event Entry System
-📌 Overview
+# 🎟️ AttendX – Smart Event Entry System
 
-AttendX is a full-stack web application developed to streamline event registration, participant management, QR-based entry verification, and attendance tracking.
+## 📌 Overview
 
-The system replaces manual event registration and attendance processes with a secure digital workflow. Each event registration generates a unique QR code that can be scanned by event organizers to validate entry and record attendance in real time.
+AttendX is a full-stack web application designed to simplify event registration, participant management, QR code-based entry verification, and attendance tracking.
 
-The application supports both participant and administrator roles, providing dedicated dashboards and management tools for each user type.
+The system replaces manual registration and attendance processes with a secure digital workflow. Each event registration generates a unique QR code that organizers can scan to verify participant entry and record attendance in real time.
 
-🎯 Problem Statement
+The application supports two user roles—**Participant** and **Administrator**—with dedicated dashboards and management features for each.
 
-Traditional event management processes often face several challenges:
+---
 
-Manual registration and attendance tracking
-Duplicate registrations and fake entries
-Difficulty managing large participant lists
-Lack of real-time attendance visibility
-Time-consuming entry verification process
+## 🎯 Problem Statement
 
-AttendX solves these challenges through automated registration, QR-based verification, and centralized event administration.
+Traditional event management often faces challenges such as:
 
-💡 Solution
+- Manual registration and attendance tracking
+- Duplicate registrations
+- Time-consuming entry verification
+- Difficulty managing participant records
+- Lack of real-time attendance monitoring
 
-AttendX provides a complete event lifecycle management platform where:
+AttendX addresses these issues by providing a centralized and automated event management solution.
 
-Participants register and manage event enrollments.
-Organizers create and manage events.
-Unique QR codes are generated for every registration.
-Administrators verify entries using QR scanning.
-Attendance is automatically recorded.
-Event analytics and reports are generated through the admin dashboard.
-🏗️ Technology Stack
-Frontend
-HTML5
-CSS3
-JavaScript
-Responsive Design
-Backend
-PHP (Core PHP)
-Session-Based Authentication
-PDO Database Access Layer
-Database
-MySQL
-Additional Libraries
-phpqrcode (QR Code Generation)
-Chart.js (Dashboard Analytics)
-👥 User Roles
-Participant
-Register account
-Login securely
-Browse available events
-Register for events
-View event tickets
-Download QR codes
-Track attendance status
-Update profile
-Administrator
-Create events
-Edit events
-Delete events
-View participants
-Verify QR codes
-Mark attendance
-Generate reports
-Monitor dashboard analytics
-🔄 System Workflow
-Participant Flow
-User Registration
-User Login
-Event Selection
-Event Registration
-QR Ticket Generation
-Event Entry Verification
-Attendance Recording
-Administrator Flow
-Admin Login
-Event Creation
-Participant Monitoring
-QR Verification
-Attendance Management
-Report Generation
-📊 Database Design
-Core Tables
-users
-events
-registrations
-qr_codes
-attendance
-Relationships
-One User → Multiple Registrations
-One Event → Multiple Registrations
-One Registration → One QR Code
-One Registration → One Attendance Record
-🔐 Security Features
-Password Hashing
-Session-Based Authentication
-Role-Based Access Control
-Prepared Statements using PDO
-Duplicate Registration Prevention
-Duplicate Attendance Prevention
-QR Token Validation
-📂 Project Structure
+---
+
+## 💡 Solution
+
+AttendX enables complete event lifecycle management by allowing users to:
+
+### Participants
+
+- Create an account
+- Browse available events
+- Register for events
+- Receive a unique QR code ticket
+- View registration history
+- Track attendance status
+- Manage their profile
+
+### Administrators
+
+- Create, edit, and delete events
+- View registered participants
+- Verify QR codes during event entry
+- Mark attendance instantly
+- Monitor event statistics
+- Generate attendance reports
+
+---
+
+# 🏗️ Technology Stack
+
+## Frontend
+
+- HTML5
+- CSS3
+- JavaScript
+- Responsive Design
+
+## Backend
+
+- PHP (Core PHP)
+- PDO
+- Session-Based Authentication
+
+## Database
+
+- MySQL
+
+## Libraries
+
+- phpqrcode
+- Chart.js
+
+---
+
+# 👥 User Roles
+
+## Participant
+
+- Register and log in
+- Browse available events
+- Register for events
+- Download QR tickets
+- View attendance history
+- Update profile
+
+## Administrator
+
+- Manage events
+- Manage participants
+- Verify QR codes
+- Record attendance
+- Generate reports
+- View dashboard analytics
+
+---
+
+# 🔄 System Workflow
+
+## Participant Workflow
+
+1. Register Account
+2. Login
+3. Browse Events
+4. Register for an Event
+5. Receive QR Code Ticket
+6. QR Verification at Entry
+7. Attendance Recorded
+
+## Administrator Workflow
+
+1. Login
+2. Create or Manage Events
+3. View Registered Participants
+4. Scan QR Codes
+5. Record Attendance
+6. Generate Reports
+
+---
+
+# 📊 Database Design
+
+### Main Tables
+
+- users
+- events
+- registrations
+- qr_codes
+- attendance
+
+### Relationships
+
+- One User → Many Registrations
+- One Event → Many Registrations
+- One Registration → One QR Code
+- One Registration → One Attendance Record
+
+---
+
+# 🔐 Security Features
+
+- Password Hashing
+- Session-Based Authentication
+- Role-Based Access Control
+- PDO Prepared Statements
+- Duplicate Registration Prevention
+- Duplicate Attendance Prevention
+- Secure QR Token Validation
+
+---
+
+# 📂 Project Structure
+
+```text
 smart-event-entry/
 ├── admin/
 ├── assets/
@@ -114,27 +168,58 @@ smart-event-entry/
 ├── register.php
 ├── logout.php
 └── ticket.php
-⚡ Key Features
-Event Management
-Create Event
-Edit Event
-Delete Event
-Event Dashboard
-Registration Management
-Event Registration
-Registration History
-Duplicate Registration Prevention
-QR Code System
-Unique QR Generation
-QR Download Support
-QR Validation
-Attendance Management
-Attendance Recording
-Attendance Reports
-Attendance History
-Analytics Dashboard
-Total Users
-Total Events
-Total Registrations
-Attendance Statistics
-Event Reports
+```
+
+---
+
+# ✨ Key Features
+
+### Event Management
+
+- Create Events
+- Edit Events
+- Delete Events
+- Event Dashboard
+
+### Registration System
+
+- Online Event Registration
+- Registration History
+- Duplicate Registration Prevention
+
+### QR Code System
+
+- Automatic QR Code Generation
+- QR Code Download
+- QR Validation
+
+### Attendance Management
+
+- QR-Based Attendance
+- Attendance Tracking
+- Attendance Reports
+
+### Dashboard & Analytics
+
+- Total Users
+- Total Events
+- Total Registrations
+- Attendance Statistics
+- Event Reports
+
+---
+
+# 🚀 Future Enhancements
+
+- Email Notifications
+- Event Reminder System
+- Mobile Application
+- Certificate Generation
+- Payment Gateway Integration
+- Multi-Organizer Support
+
+---
+
+## 👨‍💻 Author
+
+Developed as a full-stack web application project using **PHP, MySQL, HTML, CSS, JavaScript, PDO, and QR Code technology**.
